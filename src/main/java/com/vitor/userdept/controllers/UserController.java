@@ -6,6 +6,7 @@ import com.vitor.userdept.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 import java.util.List;
 import java.util.Optional;
@@ -38,4 +39,10 @@ public class UserController {
         User result = repository.save(user);
         return result;
     }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable long id) {
+        repository.deleteById(id);
+    }
+
 }
